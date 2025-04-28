@@ -197,7 +197,7 @@ def report(history, evaluation):
 
 def test():
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=not DEBUG)
+        browser = playwright.webkit.launch(headless=not DEBUG)
         try:
             ctx = browser.new_context()
 
