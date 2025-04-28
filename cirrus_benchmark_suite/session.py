@@ -4,6 +4,7 @@ from playwright.sync_api import Page
 
 from cirrus_benchmark_suite.utils import DEBUG, getenv
 
+
 def _manual_user_login(page: Page):
     print("Performing manual login")
     page.get_by_text("Successfully signed in as").wait_for(
@@ -12,8 +13,8 @@ def _manual_user_login(page: Page):
 
 
 def _automatic_user_login(page: Page, username: str, password: str):
-    page.get_by_placeholder('Username or email').fill(username)
-    page.get_by_placeholder('Password').fill(password)
+    page.get_by_placeholder("Username or email").fill(username)
+    page.get_by_placeholder("Password").fill(password)
     page.get_by_role("button", name="Sign In").click()
     page.get_by_text("Successfully signed in as").wait_for()
 
