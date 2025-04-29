@@ -101,9 +101,9 @@ def benchmark_algorithm_job(benchmarks, page, session_url):
     with Timer() as timer:
         page.goto(algorihm_job_url)
 
-        # 1. View results
+        # 1. Annotations statistics
         expect(
-            page.locator('[data-plugin-name="AlgorithmResultPlugin"]')
+            page.locator('[data-plugin-name="AnnotationStatisticsPlugin"]')
         ).to_be_visible(timeout=20_000)
 
         # 2. View annotations
@@ -132,7 +132,12 @@ def benchmark_archive_item(benchmarks, page, session_url):
             page.locator('[data-plugin-name="AnnotationListPlugin"]')
         ).to_be_visible(timeout=20_000)
 
-        # 2. View  images
+        # 2. Overlay plugin
+        expect(
+            page.locator('[data-plugin-name="OverlayPlugin"]')
+        ).to_be_visible(timeout=20_000)
+
+        # 3. View  images
         expect(page.locator('[data-test="viewitem"]')).to_have_count(4)
 
     benchmarks["archiveitem.loading"] = _correct(timer.elapsed_time)
@@ -192,7 +197,7 @@ def report(history, evaluation):
 
 def test():
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=not DEBUG)
+        browser = playwright.webkit.launch(headless=not DEBUG)
         try:
             ctx = browser.new_context()
 
