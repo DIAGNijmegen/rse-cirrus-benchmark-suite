@@ -76,11 +76,8 @@ def benchmark_reader_study(benchmarks, page, session_url):
     # Wait 5 seconds to allow from some pre-loading
     page.wait_for_timeout(5000)
 
-    page.locator("#reader-study-switcher-next-button").click()
-    ok_button = page.get_by_role("button", name="Ok")
-
     with Timer() as timer:
-        ok_button.click()
+        page.locator("#reader-study-switcher-next-button").click()
 
         # 1. Case information
         expect(page.get_by_text("This is friendly geezer")).to_be_visible()
