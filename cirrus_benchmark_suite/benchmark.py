@@ -178,7 +178,7 @@ def report(history, evaluation):
             print("Skipped: no new data point")
             continue
         print(f"### Runtime: {history.latest[column]}ms")
-        print(f"P-value: {evaluation.p_values[column]*100:0.3f}%")
+        print(f"P-value: {evaluation.p_values[column] * 100:0.3f}%")
         print(
             "\tProbability of getting this runtime under the assumption that it is from the reference distribution: a low value suggests an outlier."
         )
