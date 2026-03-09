@@ -39,7 +39,9 @@ def create_viewer_session(page):
         "https://grand-challenge.org/viewers/cirrus-staging/sessions/create/",
     )
 
-    response = page.goto(session_create_url)
+    response = page.goto(
+        f"{session_create_url}whatever/00000000-0000-0000-0000-000000000000"
+    )
 
     if response.status in (404, 403):
         raise RuntimeError(
@@ -47,9 +49,12 @@ def create_viewer_session(page):
         )
 
     assert response.ok, "session creation started"
-    page.wait_for_url("**/cirrus/", timeout=30_000)
+    page.wait_for_url(
+        "**/cirrus/whatever/00000000-0000-0000-0000-000000000000",
+        timeout=30_000,
+    )
 
-    return page.url
+    return session_create_url
 
 
 permission_checks = []
