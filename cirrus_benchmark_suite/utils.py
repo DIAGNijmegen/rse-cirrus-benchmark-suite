@@ -58,7 +58,7 @@ def get_git_hash():
 
 def get_cirrus_version(page):
     # Close the Error message
-    page.get_by_text("Close").click()
+    page.locator("#message-modal").get_by_text("Close").click()
 
     # Navigate to the help and extract the version
     page.get_by_role("button", name="Help").click()
