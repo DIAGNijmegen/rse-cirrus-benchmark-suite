@@ -66,7 +66,7 @@ wheels = [
 [[package]]
 name = "cirrus-benchmark-suite"
 version = "0.0.0"
-source = { virtual = "." }
+source = { editable = "." }
 default-groups = "all"
 dependencies = [
     { name = "pandas", version = "2.3.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
