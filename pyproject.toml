@@ -33,6 +33,7 @@ module-name = "cirrus_benchmark_suite"
 dev = [
     "pytest",
     "black",
+    "pre-commit",
 ]
 
 [tool.uv]
