@@ -10,8 +10,8 @@ A benchmark suite using Playwright to record and report metrics on realtime perf
 Install via uv:
 
 ```shell
-uv install
-uv run playwright install
+uv sync --locked
+uv run playwright install webkit
 ```
 
 Perhaps it is still required to install some missing depedencies to run the playwright browser. You can do so via:
@@ -47,5 +47,5 @@ SESSION_CREATE_URL="https://grand-challenge.org/viewers/cirrus-core/sessions/cre
 After installing and/or configuring. Run the benchmark suite using:
 
 ```shell
-uv run python cirrus_benchmark_suite/benchmark.py
+uv run benchmark
 ```
