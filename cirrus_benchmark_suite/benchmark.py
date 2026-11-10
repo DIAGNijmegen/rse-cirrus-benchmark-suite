@@ -224,10 +224,14 @@ def test():
             playwright = None
 
 
-if __name__ == "__main__":
+def main():
     with Timer() as timer:
         test()
     runtime = timer.elapsed_time / 1000
 
     print("Benchmarking finished!")
     print(f"Total runtime: {runtime:0.1f} seconds")
+
+
+if __name__ == "__main__":
+    main()
